@@ -3,7 +3,7 @@ from threading import Thread
 try:
     import requests
 except:
-    print("Please run RUN_THIS_FIRST.py before using this")
+    print("Please run run_this.py before using this")
     time.sleep(20)
     sys.exit()
 
@@ -12,12 +12,12 @@ try:
     from colorama import Fore, init, Back, Style
     
 except:
-    print("Please run RUN_THIS_FIRST.py before using this")
+    print("Please run run_this.py before using this")
     time.sleep(20)
     sys.exit()
 
 lock = threading.Lock()
-print(f"Basic Friend Request | DEVELOPED BY Alekdevs#4540")
+print(f"Basic Friend Request|Developed BY Alekdevs#4540")
 
 
 
@@ -34,7 +34,7 @@ req = requests.Session()
 try:
     format = int(input("\nCookie format:\n\n[1] user:pass:cookie\n[2] cookie\n"))
 except:
-    print(Fore.RED + "[jaix] ==> You did not enter a valid option -- exitting program")
+    print(Fore.RED + "You did not enter a valid option -- closing")
 cookies = open('cookies.txt','r').read().splitlines()
 if format == 1:
     try:
@@ -66,26 +66,26 @@ def friend_request(i):
         req.headers['X-CSRF-TOKEN'] = r.headers['X-CSRF-TOKEN']
     except:
         with lock:
-            print(Fore.RED + "[jaix] ==> You entered an invalid cookie or a proxy error occurred -- skipping")
+            print(Fore.RED + "Invalid cookie or a proxy error occurred")
         return True
     while True:
         try:
             r = req.post(f"https://friends.roblox.com/v1/users/{id}/request-friendship",proxies=random.choice(proxies))
         except:
             with lock:
-                print(Fore.RED + "[jaix] ==> Proxy Error - Retrying - You may potentially be using bad proxies")
+                print(Fore.RED + "Proxy Error - Retrying - You may potentially be using bad proxies")
             continue
         if 'success' in r.json():
             if r.json()['success'] == True:
                 with lock:
-                    print(Fore.GREEN + f"[jaix] ==> Successfully sent friend request to {id}")
+                    print(Fore.GREEN + f"Successfully sent friend request to {id}")
                 sent += 1
                 print(f'Sent requests: {sent} | Progress: {checked}/{len(cookies)}')
                 break
         elif 'errors' in r.json():
             if r.json()['errors'][0]['message'] == "The target user is already a friend.":
                 with lock:
-                    print(Fore.RED + "[jaix] ==> Failed to send friend request -- friend request is already pending")
+                    print(Fore.RED + "[Failed to send friend request -- friend request is already pending")
                 break
     print(f'Sent requests: {sent} | Progress: {checked}/{len(cookies)}')
     return True
@@ -97,7 +97,7 @@ print(Fore.CYAN + "[1] -> Mass Friend Request Bot")
 try:
     option = int(input("\n Enter number of tool that you'd like to use: "))
 except:
-    print(Fore.RED + "[jaix] ==> You did not enter a valid option -- exitting program")
+    print(Fore.RED + "You did not enter a valid option -- closing")
     time.sleep(30)
     sys.exit()
 
