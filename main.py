@@ -51,7 +51,7 @@ else:
     sys.exit()
 
 if len(cookies) == 0:
-    print(Fore.RED + "\nWARNING - You have no cookies loaded - specific tools may not function as intended\n")
+    print(Fore.RED + "\nWARNING - You have no cookies loaded - bit will not work\n")
 
 
 def friend_request(i):
