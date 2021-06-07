@@ -3,7 +3,7 @@ from threading import Thread
 try:
     import requests
 except:
-    print("Please run run_this.py before using this")
+    print("Please run run_first.py before using this")
     time.sleep(20)
     sys.exit()
 
@@ -12,7 +12,7 @@ try:
     from colorama import Fore, init, Back, Style
     
 except:
-    print("Please run run_this.py before using this")
+    print("Please run run_first.py before using this")
     time.sleep(20)
     sys.exit()
 
