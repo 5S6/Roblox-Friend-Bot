@@ -17,7 +17,7 @@ except:
     sys.exit()
 
 lock = threading.Lock()
-print(f"Basic Friend Request|Developed BY Alekdevs#4540")
+print(f"Basic Friend Request|Developed BY Alek#2022")
 
 
 
