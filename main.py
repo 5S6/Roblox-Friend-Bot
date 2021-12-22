@@ -12,7 +12,7 @@ try:
     from colorama import Fore, init, Back, Style
     
 except:
-    print("Please run run_first.py before using this")
+    print("Please run run_first.py before using this") #do this lmfao
     time.sleep(20)
     sys.exit()
 
@@ -40,7 +40,7 @@ if format == 1:
     try:
         cookies = [cookie.split(':',2)[2] for cookie in cookies]
     except:
-        print("\n Your cookies are not formatted like this or there were no cookies found in cookies.txt.")
+        print("\n Your cookies are not formatted like this or there were no cookies found in cookies.txt.") #sad
         time.sleep(20)
         sys.exit()
 elif format == 2:
@@ -51,7 +51,7 @@ else:
     sys.exit()
 
 if len(cookies) == 0:
-    print(Fore.RED + "\nWARNING - You have no cookies loaded - bit will not work\n")
+    print(Fore.RED + "\nWARNING - You have no cookies loaded - bit will not work\n") #Get Cookies SMH
 
 
 def friend_request(i):
@@ -61,12 +61,12 @@ def friend_request(i):
     req = requests.Session()
     req.cookies['.ROBLOSECURITY'] = i
     try:
-        r = req.get('http://www.roblox.com/mobileapi/userinfo').json()
+        r = req.get('http://www.roblox.com/mobileapi/userinfo').json() 
         r = req.post('https://auth.roblox.com/v2/login',proxies=random.choice(proxies))
         req.headers['X-CSRF-TOKEN'] = r.headers['X-CSRF-TOKEN']
     except:
         with lock:
-            print(Fore.RED + "Invalid cookie or a proxy error occurred")
+            print(Fore.RED + "Invalid cookie or a proxy error occurred") #Sad
         return True
     while True:
         try:
@@ -78,20 +78,20 @@ def friend_request(i):
         if 'success' in r.json():
             if r.json()['success'] == True:
                 with lock:
-                    print(Fore.GREEN + f"Successfully sent friend request to {id}")
+                    print(Fore.GREEN + f"Successfully sent friend request to {id}") #YAY
                 sent += 1
                 print(f'Sent requests: {sent} | Progress: {checked}/{len(cookies)}')
                 break
         elif 'errors' in r.json():
-            if r.json()['errors'][0]['message'] == "The target user is already a friend.":
+            if r.json()['errors'][0]['message'] == "The target user is already a friend.": #Lovely
                 with lock:
-                    print(Fore.RED + "[Failed to send friend request -- friend request is already pending")
+                    print(Fore.RED + "[Failed to send friend request -- friend request is already pending") #LMFAO
                 break
     print(f'Sent requests: {sent} | Progress: {checked}/{len(cookies)}')
     return True
 
 
-print(Fore.CYAN + "[1] -> Mass Friend Request Bot")
+print(Fore.CYAN + "[1] -> Mass Friend Request Bot") #The Only Option LMFAO
 
 
 try:
@@ -106,7 +106,7 @@ except:
 open('output.txt', 'w+').close()
 if option == 1:
     print("Note that this option requires proxies")
-    id = int(input("Enter the ID of the person you would like to bot friend requests to: "))
+    id = int(input("Enter the ID of the person you would like to bot friend requests to: ")) 
     sent = 0
     checked = 0
     ts = []
